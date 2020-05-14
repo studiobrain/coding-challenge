@@ -1,6 +1,8 @@
 ## Coding Challenge
 
-In the project directory, you can run:
+### running the app
+In the project directory, you can run:<br />
+`yarn`<br />
 `yarn start`
 
 Runs the app in the development mode.<br />
@@ -13,7 +15,7 @@ Starting the application will also:
 
 _should any of the above fail, development will be haulted until the error is resolved, if a test fails due to new development, an alert will be raised in the console_
 
-#### utilized technology
+### utilized technology
 
 **react**<br />
 **mobx-state-tree** - global and react context state management with hooks support. [more info](https://mobx-state-tree.js.org/intro/philosophy)<br />
