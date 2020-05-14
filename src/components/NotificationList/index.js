@@ -8,7 +8,9 @@ const NotificationList = observer((props) => {
 
   return (
     <div className={styles.notificationList}>
-      <div className={styles.notificationHeader}>{headerDisplay}</div>
+      <div className={styles.notificationHeader}>
+        {headerDisplay} <span>{!!list.length ? String(list.length) : 0}</span>
+      </div>
       {!!list.length ? (
         <>
           {list.map((item, i) => (

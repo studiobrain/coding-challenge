@@ -27,8 +27,8 @@ describe("NotificationList: testing base functionality and it", () => {
   );
   const headerDisplay = getByText(header);
 
-  it.only("renders the correct header", async () => {
-    expect(headerDisplay.textContent).toEqual(header);
+  it.only("renders the correct header with list count", async () => {
+    expect(headerDisplay.textContent).toEqual(`${header} 3`);
   });
 
   it.only("renders a list of sunscribed notifications", async () => {
