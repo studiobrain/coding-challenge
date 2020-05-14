@@ -4,48 +4,9 @@
   height: 100%; }
   .applicationContainer .applicationHeader {
     background: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 0 40px; }
-  .applicationContainer .notificationSnackbar {
-    position: absolute;
-    padding: 5px 15px;
-    margin: 0 0 10px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease-in;
-    animation: slide-in 0.4s ease;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    width: 320px;
-    background: #f56236;
-    right: 10px;
-    top: 10px; }
-    .applicationContainer .notificationSnackbar:hover {
-      cursor: pointer; }
-    .applicationContainer .notificationSnackbar svg {
-      width: 50px;
-      height: 50px;
-      transition: all 0.3s ease-in;
-      margin-right: 10px;
-      color: white; }
-    .applicationContainer .notificationSnackbar .notificationRemoval {
-      height: 15px;
-      padding: 5px 15px;
-      font-size: 12px;
-      transition: all 0.2s ease-in;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      color: black;
-      position: absolute;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.5); }
-      .applicationContainer .notificationSnackbar .notificationRemoval:hover {
-        box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
-        background: white; }
   .applicationContainer .applicationSubHeader {
     width: 100%;
     height: 80px;
@@ -60,40 +21,13 @@
       display: flex;
       align-items: center;
       justify-content: flex-end; }
-      .applicationContainer .applicationSubHeader .actions .button {
-        background: white;
-        border-radius: 4px;
-        height: 40px;
-        padding: 0 20px;
-        display: flex;
-        align-items: center;
-        font-family: Lato;
-        font-size: 14px;
-        background: white;
-        color: black;
-        cursor: pointer;
-        border: 1px solid black;
-        transition: all 0.3s ease-in;
-        min-width: 60px;
-        align-items: center;
-        justify-content: center; }
-        .applicationContainer .applicationSubHeader .actions .button:hover {
-          border: 1px solid white; }
-        .applicationContainer .applicationSubHeader .actions .button:not(:first-child) {
-          margin-left: 10px; }
-        .applicationContainer .applicationSubHeader .actions .button.generating {
-          background: #f56236;
-          color: white; }
-        .applicationContainer .applicationSubHeader .actions .button.start {
-          background: #88fca3; }
-        .applicationContainer .applicationSubHeader .actions .button.clear {
-          background: #f56236; }
   .applicationContainer .applicationContent {
     background: rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 50px 50px; }
+    padding: 20px 50px 50px;
+    overflow: auto; }
 
 .notificationContainer {
   display: grid;
@@ -102,84 +36,3 @@
   max-width: 1400px;
   justify-content: center;
   grid-gap: 10px; }
-  .notificationContainer .notificationList {
-    font-family: Lato; }
-    .notificationContainer .notificationList p {
-      font-size: 14px;
-      font-weight: lighter;
-      padding: 10px; }
-    .notificationContainer .notificationList .notificationCard {
-      padding: 20px;
-      margin: 0 0 10px;
-      border-radius: 4px;
-      box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease-in;
-      animation: slide-up 0.4s ease;
-      font-size: 14px;
-      background: white;
-      display: flex;
-      align-items: center;
-      position: relative; }
-      .notificationContainer .notificationList .notificationCard:hover {
-        cursor: pointer; }
-        .notificationContainer .notificationList .notificationCard:hover .notificationRemoval {
-          background: rgba(255, 255, 255, 0.5); }
-      .notificationContainer .notificationList .notificationCard svg {
-        width: 50px;
-        height: 50px;
-        transition: all 0.3s ease-in;
-        margin-right: 10px; }
-      .notificationContainer .notificationList .notificationCard.error svg {
-        color: #f56236; }
-      .notificationContainer .notificationList .notificationCard.error:hover {
-        background: #f56236;
-        color: rgba(0, 0, 0, 0.5); }
-        .notificationContainer .notificationList .notificationCard.error:hover svg {
-          color: white; }
-      .notificationContainer .notificationList .notificationCard.warning svg {
-        color: #fce788; }
-      .notificationContainer .notificationList .notificationCard.warning:hover {
-        background: #fce788;
-        color: rgba(0, 0, 0, 0.5); }
-        .notificationContainer .notificationList .notificationCard.warning:hover svg {
-          color: white; }
-      .notificationContainer .notificationList .notificationCard.info svg {
-        color: #88fca3; }
-      .notificationContainer .notificationList .notificationCard.info:hover {
-        background: #88fca3;
-        color: rgba(0, 0, 0, 0.5); }
-        .notificationContainer .notificationList .notificationCard.info:hover svg {
-          color: white; }
-      .notificationContainer .notificationList .notificationCard .notificationRemoval {
-        height: 15px;
-        padding: 5px 15px;
-        font-size: 12px;
-        transition: all 0.2s ease-in;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        color: black;
-        position: absolute;
-        right: 20px; }
-        .notificationContainer .notificationList .notificationCard .notificationRemoval:hover {
-          box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
-          background: white; }
-    .notificationContainer .notificationList .notificationHeader {
-      font-weight: bold;
-      font-size: 16px;
-      margin: 10px;
-      text-transform: capitalize; }
-
-@keyframes slide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px); }
-  100% {
-    transform: translateY(0); } }
-
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateX(20px); }
-  100% {
-    transform: translateX(0); } }

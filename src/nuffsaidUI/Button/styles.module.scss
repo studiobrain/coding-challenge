@@ -1,0 +1,41 @@
+@import "../variables.scss";
+
+.button {
+  background: white;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  font-size: 14px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  transition: all 0.3s ease-in;
+  min-width: 60px;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    border: 1px solid white;
+  }
+
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  &.generating {
+    background: $base-red;
+    color: white;
+  }
+
+  &.start {
+    background: $base-green;
+  }
+
+  &.clear {
+    background: $base-red;
+  }
+}

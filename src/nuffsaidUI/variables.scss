@@ -1,0 +1,26 @@
+// colors
+$base-red: #f56236;
+$base-yellow: #fce788;
+$base-green: #88fca3;
+$base-gray: rgba(0, 0, 0, 0.1);
+
+// animations
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -5,58 +5,9 @@
 
   .applicationHeader {
     background: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     padding: 0 40px;
-  }
-
-  .notificationSnackbar {
-    position: absolute;
-    padding: 5px 15px;
-    margin: 0 0 10px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease-in;
-    animation: slide-in 0.4s ease;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    width: 320px;
-    background: #f56236;
-    right: 10px;
-    top: 10px;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    svg {
-      width: 50px;
-      height: 50px;
-      transition: all 0.3s ease-in;
-      margin-right: 10px;
-      color: white;
-    }
-
-    .notificationRemoval {
-      height: 15px;
-      padding: 5px 15px;
-      font-size: 12px;
-      transition: all 0.2s ease-in;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      color: black;
-      position: absolute;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.5);
-
-      &:hover {
-        box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
-        background: white;
-      }
-    }
   }
 
   .applicationSubHeader {
@@ -74,46 +25,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-
-      .button {
-        background: white;
-        border-radius: 4px;
-        height: 40px;
-        padding: 0 20px;
-        display: flex;
-        align-items: center;
-        font-family: Lato;
-        font-size: 14px;
-        background: white;
-        color: black;
-        cursor: pointer;
-        border: 1px solid black;
-        transition: all 0.3s ease-in;
-        min-width: 60px;
-        align-items: center;
-        justify-content: center;
-
-        &:hover {
-          border: 1px solid white;
-        }
-
-        &:not(:first-child) {
-          margin-left: 10px;
-        }
-
-        &.generating {
-          background: #f56236;
-          color: white;
-        }
-
-        &.start {
-          background: #88fca3;
-        }
-
-        &.clear {
-          background: #f56236;
-        }
-      }
     }
   }
 
@@ -123,6 +34,7 @@
     flex-direction: column;
     align-items: center;
     padding: 20px 50px 50px;
+    overflow: auto;
   }
 }
 
@@ -133,127 +45,4 @@
   max-width: 1400px;
   justify-content: center;
   grid-gap: 10px;
-
-  .notificationList {
-    font-family: Lato;
-
-    p {
-      font-size: 14px;
-      font-weight: lighter;
-      padding: 10px;
-    }
-
-    .notificationCard {
-      padding: 20px;
-      margin: 0 0 10px;
-      border-radius: 4px;
-      box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease-in;
-      animation: slide-up 0.4s ease;
-      font-size: 14px;
-      background: white;
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      &:hover {
-        cursor: pointer;
-
-        .notificationRemoval {
-          background: rgba(255, 255, 255, 0.5);
-        }
-      }
-
-      svg {
-        width: 50px;
-        height: 50px;
-        transition: all 0.3s ease-in;
-        margin-right: 10px;
-      }
-
-      &.error {
-        svg {
-          color: #f56236;
-        }
-        &:hover {
-          background: #f56236;
-          color: rgba(0, 0, 0, 0.5);
-          svg {
-            color: white;
-          }
-        }
-      }
-
-      &.warning {
-        svg {
-          color: #fce788;
-        }
-        &:hover {
-          background: #fce788;
-          color: rgba(0, 0, 0, 0.5);
-          svg {
-            color: white;
-          }
-        }
-      }
-
-      &.info {
-        svg {
-          color: #88fca3;
-        }
-        &:hover {
-          background: #88fca3;
-          color: rgba(0, 0, 0, 0.5);
-          svg {
-            color: white;
-          }
-        }
-      }
-
-      .notificationRemoval {
-        height: 15px;
-        padding: 5px 15px;
-        font-size: 12px;
-        transition: all 0.2s ease-in;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        color: black;
-        position: absolute;
-        right: 20px;
-
-        &:hover {
-          box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
-          background: white;
-        }
-      }
-    }
-
-    .notificationHeader {
-      font-weight: bold;
-      font-size: 16px;
-      margin: 10px;
-      text-transform: capitalize;
-    }
-  }
-}
-
-@keyframes slide-up {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }

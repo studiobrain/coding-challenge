@@ -1,0 +1,81 @@
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(20px); }
+  100% {
+    transform: translateX(0); } }
+
+.notificationList {
+  font-family: Lato; }
+  .notificationList p {
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 10px; }
+  .notificationList .notificationCard {
+    padding: 20px;
+    margin: 0 0 10px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in;
+    animation: slide-up 0.4s ease;
+    font-size: 14px;
+    background: white;
+    display: flex;
+    align-items: center;
+    position: relative; }
+    .notificationList .notificationCard:hover {
+      cursor: pointer; }
+      .notificationList .notificationCard:hover .notificationRemoval {
+        background: rgba(255, 255, 255, 0.5); }
+    .notificationList .notificationCard svg {
+      width: 50px;
+      height: 50px;
+      transition: all 0.3s ease-in;
+      margin-right: 10px; }
+    .notificationList .notificationCard.error svg {
+      color: #f56236; }
+    .notificationList .notificationCard.error:hover {
+      background: #f56236;
+      color: rgba(0, 0, 0, 0.5); }
+      .notificationList .notificationCard.error:hover svg {
+        color: white; }
+    .notificationList .notificationCard.warning svg {
+      color: #fce788; }
+    .notificationList .notificationCard.warning:hover {
+      background: #fce788;
+      color: rgba(0, 0, 0, 0.5); }
+      .notificationList .notificationCard.warning:hover svg {
+        color: white; }
+    .notificationList .notificationCard.information svg {
+      color: #88fca3; }
+    .notificationList .notificationCard.information:hover {
+      background: #88fca3;
+      color: rgba(0, 0, 0, 0.5); }
+      .notificationList .notificationCard.information:hover svg {
+        color: white; }
+    .notificationList .notificationCard .notificationRemoval {
+      height: 15px;
+      padding: 5px 15px;
+      font-size: 12px;
+      transition: all 0.2s ease-in;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      color: black;
+      position: absolute;
+      right: 20px; }
+      .notificationList .notificationCard .notificationRemoval:hover {
+        box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.25);
+        background: white; }
+  .notificationList .notificationHeader {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 10px;
+    text-transform: capitalize; }

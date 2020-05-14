@@ -1,0 +1,42 @@
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0); } }
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(20px); }
+  100% {
+    transform: translateX(0); } }
+
+.button {
+  background: white;
+  border-radius: 4px;
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  font-family: Lato;
+  font-size: 14px;
+  background: white;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  transition: all 0.3s ease-in;
+  min-width: 60px;
+  align-items: center;
+  justify-content: center; }
+  .button:hover {
+    border: 1px solid white; }
+  .button:not(:first-child) {
+    margin-left: 10px; }
+  .button.generating {
+    background: #f56236;
+    color: white; }
+  .button.start {
+    background: #88fca3; }
+  .button.clear {
+    background: #f56236; }

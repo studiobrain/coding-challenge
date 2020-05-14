@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import { useStore } from "../../hooks";
+import NotificationList from "../NotificationList";
+import { Button, SnackBarNotification } from "../../nuffsaidUI";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { MdError } from "react-icons/md";
 import { MdWarning } from "react-icons/md";
@@ -34,102 +36,45 @@ const Application = observer(() => {
       </div>
       <div className={styles.applicationSubHeader}>
         <div className={styles.actions}>
-          <div
-            className={`${styles.button} ${
-              generating ? styles.generating : styles.start
-            }`}
-            onClick={toggleGeneration}
-          >
-            {generating ? "stop" : "start"}
-          </div>
-          <div className={styles.button} onClick={removeAllNotifications}>
-            clear all
-          </div>
+          <Button
+            callBack={toggleGeneration}
+            display={generating ? "stop" : "start"}
+            type={generating ? "generating" : "start"}
+          />
+          <Button callBack={removeAllNotifications} display="clear all" />
         </div>
       </div>
       {!!currentSnackbarError && (
-        <div className={styles.notificationSnackbar}>
-          <MdError />
-          {currentSnackbarError.message}
-          <div className={styles.notificationRemoval} onClick={removeSnackBar}>
-            clear
-          </div>
-        </div>
+        <SnackBarNotification
+          icon={<MdError />}
+          message={currentSnackbarError.message}
+          callBack={removeSnackBar}
+          display="clear"
+        />
       )}
       <div className={styles.applicationContent}>
         <div className={styles.notificationContainer}>
-          <div className={styles.notificationList}>
-            <div className={styles.notificationHeader}>errors</div>
-            {!!errorsList.length ? (
-              <>
-                {errorsList.map((item, i) => (
-                  <div
-                    className={`${styles.notificationCard} ${styles.error}`}
-                    key={i}
-                  >
-                    <MdError />
-                    {item.message}
-                    <div
-                      className={styles.notificationRemoval}
-                      onClick={() => removeNotification(item, "error")}
-                    >
-                      clear
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <p>There are currently no error messages.</p>
-            )}
-          </div>
-          <div className={styles.notificationList}>
-            <div className={styles.notificationHeader}>warnings</div>
-            {!!warningsList.length ? (
-              <>
-                {warningsList.map((item, i) => (
-                  <div
-                    className={`${styles.notificationCard} ${styles.warning}`}
-                    key={i}
-                  >
-                    <MdWarning />
-                    {item.message}
-                    <div
-                      className={styles.notificationRemoval}
-                      onClick={() => removeNotification(item, "warning")}
-                    >
-                      clear
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <p>There are currently no warning messages.</p>
-            )}
-          </div>
-          <div className={styles.notificationList}>
-            <div className={styles.notificationHeader}>information</div>
-            {!!informationList.length ? (
-              <>
-                {informationList.map((item, i) => (
-                  <div
-                    className={`${styles.notificationCard} ${styles.info}`}
-                    key={i}
-                  >
-                    <MdInfo />
-                    {item.message}
-                    <div
-                      className={styles.notificationRemoval}
-                      onClick={() => removeNotification(item, "information")}
-                    >
-                      clear
-                    </div>
-                  </div>
-                ))}
-              </>
-            ) : (
-              <p>There are currently no information messages.</p>
-            )}
-          </div>
+          <NotificationList
+            list={errorsList}
+            removalType="error"
+            removalCallback={removeNotification}
+            headerDisplay="Errors"
+            icon={<MdError />}
+          />
+          <NotificationList
+            list={warningsList}
+            removalType="warning"
+            removalCallback={removeNotification}
+            headerDisplay="Warnings"
+            icon={<MdWarning />}
+          />
+          <NotificationList
+            list={informationList}
+            removalType="information"
+            removalCallback={removeNotification}
+            headerDisplay="Information"
+            icon={<MdInfo />}
+          />
         </div>
       </div>
     </div>
