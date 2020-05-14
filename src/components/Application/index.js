@@ -49,7 +49,7 @@ const Application = observer(() => {
           icon={<MdError />}
           message={currentSnackbarError.message}
           callBack={removeSnackBar}
-          display="clear"
+          removalText="clear"
         />
       )}
       <div className={styles.applicationContent}>
