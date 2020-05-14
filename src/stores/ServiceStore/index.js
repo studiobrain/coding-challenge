@@ -15,6 +15,7 @@ export const ServiceStore = types
     errorsList: types.optional(types.array(NotificationModel), []),
     warningsList: types.optional(types.array(NotificationModel), []),
     informationList: types.optional(types.array(NotificationModel), []),
+    currentSnackbarError: types.maybeNull(NotificationModel),
   })
   .actions((self) => ({
     generateMessages() {
@@ -35,13 +36,24 @@ export const ServiceStore = types
     },
 
     addNotificationToList: (notification) => {
+      if (notification.priority === 1) {
+        self.currentSnackbarError = notification;
+        setTimeout(() => {
+          self.removeSnackBar();
+        }, 2000);
+      }
+
       const priorities = {
-        1: () => self.errorsList.unshift(notification),
+        1: () => self.errorsList.push(notification),
         2: () => self.warningsList.unshift(notification),
         3: () => self.informationList.unshift(notification),
       };
 
       priorities[notification.priority]();
+    },
+
+    removeSnackBar: () => {
+      self.currentSnackbarError = null;
     },
 
     removeNotification: (item, type) => {

@@ -19,6 +19,8 @@ const Application = observer(() => {
         toggleGeneration,
         removeNotification,
         removeAllNotifications,
+        currentSnackbarError,
+        removeSnackBar,
       },
     },
   } = useStore();
@@ -45,6 +47,15 @@ const Application = observer(() => {
           </div>
         </div>
       </div>
+      {!!currentSnackbarError && (
+        <div className={styles.notificationSnackbar}>
+          <MdError />
+          {currentSnackbarError.message}
+          <div className={styles.notificationRemoval} onClick={removeSnackBar}>
+            clear
+          </div>
+        </div>
+      )}
       <div className={styles.applicationContent}>
         <div className={styles.notificationContainer}>
           <div className={styles.notificationList}>
@@ -57,7 +68,7 @@ const Application = observer(() => {
                     key={i}
                   >
                     <MdError />
-                    {item.message} {String(item.id)}
+                    {item.message}
                     <div
                       className={styles.notificationRemoval}
                       onClick={() => removeNotification(item, "error")}
@@ -68,7 +79,7 @@ const Application = observer(() => {
                 ))}
               </>
             ) : (
-              <p>there are not currently any error messages</p>
+              <p>There are currently no error messages.</p>
             )}
           </div>
           <div className={styles.notificationList}>
@@ -92,7 +103,7 @@ const Application = observer(() => {
                 ))}
               </>
             ) : (
-              <p>there are not currently any warning messages</p>
+              <p>There are currently no warning messages.</p>
             )}
           </div>
           <div className={styles.notificationList}>
@@ -108,7 +119,7 @@ const Application = observer(() => {
                     {item.message}
                     <div
                       className={styles.notificationRemoval}
-                      onClick={() => removeNotification(item.id, "information")}
+                      onClick={() => removeNotification(item, "information")}
                     >
                       clear
                     </div>
@@ -116,7 +127,7 @@ const Application = observer(() => {
                 ))}
               </>
             ) : (
-              <p>there are not currently any information messages</p>
+              <p>There are currently no information messages.</p>
             )}
           </div>
         </div>
