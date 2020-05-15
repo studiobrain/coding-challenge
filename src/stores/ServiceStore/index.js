@@ -44,7 +44,7 @@ export const ServiceStore = types
       }
 
       const priorities = {
-        1: () => self.errorsList.push(notification),
+        1: () => self.errorsList.unshift(notification),
         2: () => self.warningsList.unshift(notification),
         3: () => self.informationList.unshift(notification),
       };
